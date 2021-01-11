@@ -6,15 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AidezMoiController extends AbstractController
+class CeintureController extends AbstractController
 {
     /**
-     * @Route("/aide", name="aide")
+     * @Route("/ceinture", name="ceinture")
      */
     public function index(): Response
     {
-        return $this->render('aide/index.html.twig', [
-            'controller_name' => 'AidezMoiController',
+        return $this->render('ceinture/index.html.twig', [
+            'controller_name' => 'CeintureController',
         ]);
     }
 }
