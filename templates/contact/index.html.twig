@@ -7,17 +7,18 @@
 <
 
 <section class="content5 cid-s329JSYoFs" id="content05-y">
-
-    
-    <div class="container">
-        <div class="mbr-row">
-            <div class="mbr-col-lg-6 mbr-col-md-12 mbr-col-sm-12">
-                <h3 class="mbr-section-subtitle mbr-fonts-style mbr-pb-3 align-left display-2">Entretien du produit et conseils</h3>
-                <p class="mbr-fonts-style mbr-text align-left display-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                    sollicitudin orci vel risus ultricies semper.</p>
+ <div class="mb-3">
+      <div class="container">
+        <div class="mbr-row mbr-jc-c">
+           <p> Bonne viste :{{ app.user.username }} </p>
+        </div>
+         <div class="mbr-row mbr-jc-c">
+            <a class="btn btn-success" href="{{ path('app_logout') }}">Se déconnecter</a>
+        </div>
             </div>
         </div>
-    </div>
+    
+ 
 </section>
 
 <section class="form form1 cid-s329Ka5vg5" id="form01-16">
@@ -46,13 +47,10 @@
                         </div>
                     </div>
                     <div class="dragArea mbr-row">
-                        <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][0][1]">
-                            <input type="hidden" name="form[data][0][0]" value="name" id="form[data][0][0]-form01-16" data-form-field="">
-                            <input type="text" name="form[data][0][1]" placeholder="Nom complet" data-form-field="name" class="field-input display-7" value="" id="form[data][0][1]-form01-16">
-                        </div>
+                        
                         <div class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field" data-for="form[data][1][1]">
-                            <input type="hidden" name="form[data][1][0]" value="email" id="form[data][1][0]-form01-16" data-form-field="">
-                            <input type="email" name="form[data][1][1]" placeholder="Email" data-form-field="email" class="field-input display-7" value="" id="form[data][1][1]-form01-16">
+                            <input type="hidden" name="form[data][1][0]" value="{{ app.user.username }}" id="form[data][1][0]-form01-16" data-form-field="">
+                            <input type="email" name="form[data][1][1]" placeholder="{{ app.user.username }}" data-form-field="email" class="field-input display-7" value="" id="form[data][1][1]-form01-16">
                         </div>
                         <div data-for="form[data][2][1]" class="mbr-col-lg-12 mbr-col-md-12 mbr-col-sm-12 field">
                             <input type="hidden" name="form[data][2][0]" value="text" id="form[data][2][0]-form01-16" data-form-field="">
