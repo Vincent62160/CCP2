@@ -3,9 +3,19 @@
 {% block title %}Genre index{% endblock %}
 
 {% block body %}
-    <h1>Genre index</h1>
+<div class="container mt-5">
+    <h1>Genres</h1>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
 
     <table class="table">
+      <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
+                      <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
+                      <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
+                      <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
+                      <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+            </div>          
         <thead>
             <tr>
                 <th>Id</th>
@@ -19,8 +29,8 @@
                 <td>{{ genre.id }}</td>
                 <td>{{ genre.genre }}</td>
                 <td>
-                    <a href="{{ path('genre_show', {'id': genre.id}) }}">show</a>
-                    <a href="{{ path('genre_edit', {'id': genre.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('genre_show', {'id': genre.id}) }}">regarder</a>
+                    <a class="btn btn-warning" href="{{ path('genre_edit', {'id': genre.id}) }}">modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +41,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('genre_new') }}">Create new</a>
+    <a class="btn btn-success  btn-lg btn-block mt-5 mb-5" href="{{ path('genre_new') }}">Ajouter un genre</a>
+    </div>
+    </div>
 {% endblock %}

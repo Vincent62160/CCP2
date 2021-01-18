@@ -1,11 +1,27 @@
 {% extends 'baseA.html.twig' %}
 
-{% block title %}New Article{% endblock %}
+{% block title %}Nouvel article{% endblock %}
 
 {% block body %}
-    <h1>Create new Article</h1>
+<div class="container mt-5">
+       <h1>Créer un nouvel article</h1>
+       <h2><a class="btn btn-primary  btn-lg btn-block mt-5 mb-5" href="{{ path('article_index') }}">Retour</a></h2>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+            <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
+                      <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
+                      <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
+                      <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
+                      <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+            </div>
+            <div class="col-md-8">
 
     {{ include('article/_form.html.twig') }}
 
-    <a href="{{ path('article_index') }}">back to list</a>
+    
+           </div>
+    </div>
+    
+</div>
+
 {% endblock %}

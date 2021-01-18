@@ -1,36 +1,46 @@
 {% extends 'baseA.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Listes des articles{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
-
-    <table class="table">
-        <thead>
+<div class="container mt-5">
+    <h1>Liste des articles</h1>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+    
+    <table class="table table-hover">
+    <a href="{{ path('article_new') }}"><buton class="btn btn-warning">Ajouter un article</button></a>
+             <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
+                      <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
+                      <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
+                      <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
+                      <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+            </div>          
+        <thead class="thead-dark">
             <tr>
-                <th>Id</th>
-                <th>Titre</th>
-                <th>Description</th>
-                 <th>Categorie</th>
-                  <th>Genre</th>
-                  <th>Image</th>
-                <th>actions</th>
+                 <th  scope="col">Image</th>
+                 <th  scope="col">Titre</th>
+                 <th scope="col">Description</th>
+                 <th scope="col">Categorie</th>
+                 <th scope="col">Genre</th>
+                 <th scope="col">prix</th>
+                <th scope="col">Voir</th>
+                <th scope="col">Modifier</th>
+
             </tr>
         </thead>
         <tbody>
         {% for article in articles %}
-            <tr>
-                <td>{{ article.id }}</td>
-                <td>{{ article.Titre }}</td>
-                <td>{{ article.description }}</td>
-                 <td>{{ article.categorie.id }}</td>
-                   <td>{{ article.genre.id }}</td>
-                    <td>{{ article.prix }}</td>
-                  <td>{{ article.image.id }}</td>
-                <td>
-                    <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
-                    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
-                </td>
+          <tr>
+              <th scope="row"> <img src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt=""></th>
+                <th scope="row">{{ article.Titre }}</th>
+                <th scope="row">{{ article.description }}</th>
+                <th scope="row">{{ article.categorie.id }}</th>
+                <th scope="row">{{ article.genre.id}}</th>
+                <th scope="row">{{ article.prix }}</th>
+                <th scope="row"><a class="btn btn-warning" href="{{ path('article_show', {'id': article.id}) }}">Voir</a></th>
+                <th scope="row"> <a class="btn btn-primary" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a></th>
             </tr>
         {% else %}
             <tr>
@@ -39,6 +49,9 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
+    </div>
 
-    <a href="{{ path('article_new') }}">Create new</a>
+    
+   
 {% endblock %}
