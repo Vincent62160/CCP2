@@ -30,6 +30,7 @@ class ArticleType extends AbstractType
             'class' => Genre::class,
             'choice_label' => 'genre'
         ])
+        ->add('prix')
     ;
     }
 

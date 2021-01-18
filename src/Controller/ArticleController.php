@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
+use App\Repository\CategorieRepository;
+use App\Repository\GenreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -90,5 +92,18 @@ class ArticleController extends AbstractController
         }
 
         return $this->redirectToRoute('article_index');
+    }
+   
+    /**
+     * @Route("/{id}/femme", name="article_corespondant", methods={"GET","POST"})
+     */
+    public function show1(ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    {
+        return $this->render('view/index.html.twig', [
+            
+            'categories' => $categorieRepository->findAll(),
+            'genres' => $genreRepository->findAll(),
+            'articles' => $articleRepository->findAll(),
+        ]);
     }
 }

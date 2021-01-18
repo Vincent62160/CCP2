@@ -1,21 +1,30 @@
-{% extends 'base.html.twig' %}
+{% extends 'baseA.html.twig' %}
 
 {% block title %}Images index{% endblock %}
 
 {% block body %}
-    <h1>Images index</h1>
+  <div class="container mt-5 xs">
+	<h1 class="text-center mb-4">Votre galerie d'images</h1>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+      <div class="col-md-12">
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>actions</th>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            
+                <th scope="col">Id</th>
+                 <th scope="col">Images</th>
+                <th scope="col">Action</th>
+            
+                
             </tr>
         </thead>
         <tbody>
         {% for image in images %}
             <tr>
                 <td>{{ image.id }}</td>
+                <th><img style="width:200px;height:200px; "src="{{ vich_uploader_asset(image, 'imageFile') }}" alt=""></th>
+
                 <td>
                     <a href="{{ path('images_show', {'id': image.id}) }}">show</a>
                     <a href="{{ path('images_edit', {'id': image.id}) }}">edit</a>
@@ -26,8 +35,13 @@
                 <td colspan="2">no records found</td>
             </tr>
         {% endfor %}
-        </tbody>
+            </tbody>
     </table>
+    </div>
+    </div>
+    </div>
+
+   
 
     <a href="{{ path('images_new') }}">Create new</a>
 {% endblock %}
