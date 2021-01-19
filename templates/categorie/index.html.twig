@@ -3,14 +3,27 @@
 {% block title %}Categorie index{% endblock %}
 
 {% block body %}
-    <h1>Categorie index</h1>
+   <div class="container mt-5 xs">
+	<h1 class="text-center mb-4">Les catégories</h1>
+    <a class="btn btn-warning" href="{{ path('categorie_new') }}">Ajouter une catégorie</a>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+      <div class="col-md-12">
 
-    <table class="table">
+    <table class="table table-hover">
+    <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
+                      <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
+                      <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
+                      <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
+                      <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+            </div>          
+
+    
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Categorie</th>
-                <th>actions</th>
+                <th scope="col">Id</th>
+                <th scope="col">Categorie</th>
+                <th scope="col">actions</th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +32,8 @@
                 <td>{{ categorie.id }}</td>
                 <td>{{ categorie.categorie }}</td>
                 <td>
-                    <a href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a href="{{ path('categorie_edit', {'id': categorie.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
+                    <a class ="btn btn-warning"href="{{ path('categorie_edit', {'id': categorie.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -31,5 +44,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('categorie_new') }}">Create new</a>
+    </div>
+    </div>
+    </div>
 {% endblock %}

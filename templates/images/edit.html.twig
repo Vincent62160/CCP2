@@ -3,11 +3,28 @@
 {% block title %}Edit Images{% endblock %}
 
 {% block body %}
-    <h1>Edit Images</h1>
+   <div class="container mt-5">
 
-    {{ include('images/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('images_index') }}">back to list</a>
+    <h1>Modifier l'image</h1>
+
+
+      <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
+                      <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
+                      <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
+                      <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
+                      <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+            </div>          
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+
+    {{ include('images/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+
 
     {{ include('images/_delete_form.html.twig') }}
+    </div>
+    </div>
+    </div>
 {% endblock %}

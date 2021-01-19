@@ -5,6 +5,7 @@
 {% block body %}
     <div class="container mt-5">
     <h1>Genre</h1>
+    <a class="btn btn-warning" href="{{ path('genre_edit', {'id': genre.id}) }}">Modifier</a>
       <div class="row-md-1">
                       <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
                       <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
@@ -16,7 +17,7 @@
        
 
     <div class="row shadow p-3 mb-5 bg-white rounded">
-    <a class="btn btn-warning" href="{{ path('genre_edit', {'id': genre.id}) }}">Modifier</a>
+  
     <div class=" col-12">
 
     <table class="table">

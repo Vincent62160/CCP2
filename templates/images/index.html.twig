@@ -5,10 +5,18 @@
 {% block body %}
   <div class="container mt-5 xs">
 	<h1 class="text-center mb-4">Votre galerie d'images</h1>
+    <a class="btn btn-warning" href="{{ path('images_new') }}">Ajouter une image</a>
     <div class="row shadow p-3 mb-5 bg-white rounded">
       <div class="col-md-12">
 
     <table class="table table-hover">
+    <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
+                      <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
+                      <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
+                      <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
+                      <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+            </div>          
         <thead class="thead-dark">
           <tr>
             
@@ -26,8 +34,8 @@
                 <th><img style="width:200px;height:200px; "src="{{ vich_uploader_asset(image, 'imageFile') }}" alt=""></th>
 
                 <td>
-                    <a href="{{ path('images_show', {'id': image.id}) }}">show</a>
-                    <a href="{{ path('images_edit', {'id': image.id}) }}">edit</a>
+                    <a class="btn btn-primary" href="{{ path('images_show', {'id': image.id}) }}">Regarder</a>
+                    <a class ="btn btn-warning" href="{{ path('images_edit', {'id': image.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}

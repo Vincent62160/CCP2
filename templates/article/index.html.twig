@@ -33,7 +33,7 @@
         <tbody>
         {% for article in articles %}
           <tr>
-              <th scope="row"> <img src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt=""></th>
+              <th scope="row"> <img style="height:100px;width:100px;" src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt=""></th>
                 <th scope="row">{{ article.Titre }}</th>
                 <th scope="row">{{ article.description }}</th>
                 <th scope="row">{{ article.categorie.id }}</th>

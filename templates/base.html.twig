@@ -45,13 +45,13 @@
                
                    {% for genre in genres %}
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{{ path('article_corespondant', {'id': genre.id}) }}">{{ genre.genre }}</a>
+                        <a class="nav-link link text-black display-4" href="{{ path('article_show', {'id': genre.id}) }}">{{ genre.genre }}</a>
                     </li>
                     {% endfor %}  
                         <a class="nav-link link  dropdown-toggle text-black display-4" data-toggle="dropdown-submenu" aria-expanded="false">Explorer</a>
                         <div class="dropdown-menu">
                           {% for categorie in categories %}
-                            <a class="dropdown-item text-black display-4" href="{{ path('article_corespondant', {'id': categorie.id}) }}"=>{{ categorie.categorie }}</a>
+                            <a class="dropdown-item text-black display-4" href="{{ path('article_show2', {'id': categorie.id}) }}"=>{{ categorie.categorie }}</a>
 
                          {% endfor %}
                         </div>
@@ -100,7 +100,7 @@
                 {% for genre in genres %}
         
                     <li class="nav-item">
-                        <a class="nav-link link text-black display-4" href="{{ path('article_corespondant', {'id': genre.id}) }}">{{ genre.genre }}</a>
+                        <a class="nav-link link text-black display-4" href="{{ path('article_show', {'id': genre.id}) }}">{{ genre.genre }}</a>
                     </li>
                     
                 {% endfor %}   
@@ -111,7 +111,7 @@
                         <a class="nav-link link  dropdown-toggle text-black display-4" data-toggle="dropdown-submenu" aria-expanded="false">Explorer</a>
                         <div class="dropdown-menu">
                           {% for categorie in categories %}
-                            <a class="dropdown-item text-black display-4" href="{{ path('article_corespondant', {'id': categorie.id}) }}" >{{ categorie.categorie }}</a>
+                            <a class="dropdown-item text-black display-4" href="{{ path('article_show2', {'id': categorie.id}) }}" >{{ categorie.categorie }}</a>
                                 {% endfor %}   
                            
                         </div>

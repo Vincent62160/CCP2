@@ -94,16 +94,32 @@ class ArticleController extends AbstractController
         return $this->redirectToRoute('article_index');
     }
    
-    /**
-     * @Route("/{id}/femme", name="article_corespondant", methods={"GET","POST"})
+     /**
+     * @Route("/{id}", name="article_show", methods={"GET"})
      */
-    public function show1(ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function show1(int $id,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
         return $this->render('view/index.html.twig', [
             
+      
             'categories' => $categorieRepository->findAll(),
             'genres' => $genreRepository->findAll(),
-            'articles' => $articleRepository->findAll(),
+            'articles' => $articleRepository->findBy(array('genre'=>$id)),
         ]);
     }
+     /**
+     * @Route("/{id}", name="article_show2", methods={"GET"})
+     */
+    public function showCategorie(int $id,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    {
+        return $this->render('viewcategorie/index.html.twig', [
+            
+      
+            'categories' => $categorieRepository->findAll(),
+            'genres' => $genreRepository->findAll(),
+            'articles' => $articleRepository->findBy(array('categorie'=>$id)),
+        ]);
+    }
+   
+    
 }

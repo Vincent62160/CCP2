@@ -3,7 +3,24 @@
 {% block title %}Images{% endblock %}
 
 {% block body %}
-    <h1>Images</h1>
+     <div class="container mt-5">
+    <h1>Image</h1>
+ <a class="btn btn-warning" href="{{ path('images_edit', {'id': image.id}) }}">Modifier</a>
+
+ 
+      <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
+                      <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
+                      <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
+                      <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
+                      <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+            </div>          
+     
+       
+
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+  
+    <div class=" col-12">
 
     <table class="table">
         <tbody>
@@ -28,16 +45,19 @@
         </tbody>
     </table>
 
-    <a href="{{ path('images_index') }}">back to list</a>
 
-    <a href="{{ path('images_edit', {'id': image.id}) }}">edit</a>
+
+ 
 
 
     <script>
-       /* $(document).ready(function(){
+        $(document).ready(function(){
             let imageUrl = "{{ imageUrl }}"
             $('#monImage').attr('src', imageUrl)
-        })*/
+        })
     </script>
     {{ include('images/_delete_form.html.twig') }}
+    </div>
+    </div>
+    </div>
 {% endblock %}

@@ -14,6 +14,8 @@ class ImagesType extends AbstractType
     {
         $builder->add('imageFile', FileType::class, [
             'required' => true,
+            'label' => 'Télécharger une image de type jpg, jpeg,png, gif',
+        
 
         ])
         ;
@@ -23,6 +25,8 @@ class ImagesType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Images::class,
+            
+        
         ]);
     }
 }
