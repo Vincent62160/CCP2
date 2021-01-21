@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\ImagesRepository;
 use App\Repository\GenreRepository;
@@ -10,16 +11,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ViewController extends AbstractController
 {
-    /**
-     * @Route("/view", name="view")
+   /**
+     * @Route("article/{id}", name="article_show", methods={"GET"})
      */
-    public function index(ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function show1(int $id,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
         return $this->render('view/index.html.twig', [
-            'controller_name' => 'ViewController',
-            'images' => $imagesRepository->findAll(),
+            
+      
             'categories' => $categorieRepository->findAll(),
             'genres' => $genreRepository->findAll(),
+            'articles' => $articleRepository->findBy(array('genre'=>$id)),
         ]);
     }
 }

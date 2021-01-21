@@ -1,31 +1,23 @@
 {% extends 'baseA.html.twig' %}
 
-{% block title %}Edit Images{% endblock %}
+{% block title %}New Logo{% endblock %}
 
 {% block body %}
-   <div class="container mt-5">
-
-
-    <h1>Modifier l'image</h1>
-
-
+<div class="container mt-5">
+     
+    <h1>Enrigistrer une nouveau logo</h1>
       <div class="row-md-1">
                       <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
                       <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
                       <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
                       <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
                       <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
-                        <a href="{{path('client_index')}}"><buton class="btn btn-primary ">Comptes clients</button></a>
+                       <a href="{{path('logo_index')}}"><buton class="btn btn-primary ">Partenaires</button></a>
             </div>          
     <div class="row shadow p-3 mb-5 bg-white rounded">
     <div class=" col-12">
 
-    {{ include('images/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+    {{ include('logo/_form.html.twig') }}
 
-
-
-    {{ include('images/_delete_form.html.twig') }}
-    </div>
-    </div>
-    </div>
+   
 {% endblock %}

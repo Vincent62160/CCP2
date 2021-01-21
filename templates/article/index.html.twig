@@ -16,6 +16,7 @@
                       <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
                       <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
                       <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+                        <a href="{{path('client_index')}}"><buton class="btn btn-primary ">Comptes clients</button></a>
             </div>          
         <thead class="thead-dark">
             <tr>
@@ -25,7 +26,7 @@
                  <th scope="col">Categorie</th>
                  <th scope="col">Genre</th>
                  <th scope="col">prix</th>
-                <th scope="col">Voir</th>
+             
                 <th scope="col">Modifier</th>
 
             </tr>
@@ -39,7 +40,7 @@
                 <th scope="row">{{ article.categorie.id }}</th>
                 <th scope="row">{{ article.genre.id}}</th>
                 <th scope="row">{{ article.prix }}</th>
-                <th scope="row"><a class="btn btn-warning" href="{{ path('article_show', {'id': article.id}) }}">Voir</a></th>
+             
                 <th scope="row"> <a class="btn btn-primary" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a></th>
             </tr>
         {% else %}

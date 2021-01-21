@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Client{% endblock %}
+
+{% block body %}
+  <div class="container mt-5">
+
+
+    <h1>Modifier le compte</h1>
+ <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+    {{ include('client/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+   
+
+    {{ include('client/_delete_form.html.twig') }}
+    </div></div>
+{% endblock %}

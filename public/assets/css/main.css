@@ -265,7 +265,7 @@ body {
 	user-select: none;
 	pointer-events: none;
 	-webkit-user-drag: none;
-	user-drag: none;
+	
 }
 
 .mbr-overlay {
@@ -335,7 +335,7 @@ html:not(.is-builder) amp-img>a {
 	top: 50%;
 	left: 40%;
 	margin-left: 10%;
-	-webkit-transform: translate3d(-50%, -50%, 0);
+	transform: translate3d(-50%, -50%, 0);
 	z-index: 4;
 }
 
@@ -345,19 +345,19 @@ html:not(.is-builder) amp-img>a {
 	background: #3ac;
 	border-radius: 100%;
 	display: inline-block;
-	-webkit-animation: slide 1s infinite;
+	animation: slide 1s infinite;
 }
 
 .mobirise-spinner em:nth-child(1) {
-	-webkit-animation-delay: 0.1s;
+	animation-delay: 0.1s;
 }
 
 .mobirise-spinner em:nth-child(2) {
-	-webkit-animation-delay: 0.2s;
+	animation-delay: 0.2s;
 }
 
 .mobirise-spinner em:nth-child(3) {
-	-webkit-animation-delay: 0.3s;
+	animation-delay: 0.3s;
 }
 
 @-moz-keyframes slide {
@@ -3124,16 +3124,16 @@ a:hover {
 }
 
 #scrollToTopButton {
-	background-color: # 6d7a71;
+	background-color: #6d7a71;
 }
 
 #scrollToTopButton a:before {
-	background: contrast(# 6d7a71);
+	background: contrast(#6d7a71);
 }
 
 #scrollToTopButton a:after {
-	border-top-color: contrast(# 6d7a71);
-	border-right-color: contrast(# 6d7a71);
+	border-top-color: contrast(#6d7a71);
+	border-right-color: contrast(#6d7a71);
 }
 
 .btn-black {

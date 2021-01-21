@@ -5,6 +5,8 @@ use App\Repository\CategorieRepository;
 use App\Repository\ImagesRepository;
 use App\Repository\GenreRepository;
 use App\Repository\ArticleRepository;
+use App\Repository\LogoRepository;
+use App\Repository\ClientRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +16,7 @@ class AcceuilController extends AbstractController
     /**
      * @Route("/acceuil", name="acceuil")
      */
-    public function index(ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function index(ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
         return $this->render('acceuil/index.html.twig', [
             'controller_name' => 'AcceuilController',
@@ -22,6 +24,8 @@ class AcceuilController extends AbstractController
             'categories' => $categorieRepository->findAll(),
             'genres' => $genreRepository->findAll(),
             'articles' => $articleRepository->findAll(),
+            'logos' => $logoRepository->findAll(),
+                    'clients' => $clientRepository->findAll(),
         ]);
     }
 }

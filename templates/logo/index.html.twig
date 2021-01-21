@@ -1,11 +1,11 @@
 {% extends 'baseA.html.twig' %}
 
-{% block title %}Categorie index{% endblock %}
+{% block title %}Logo index{% endblock %}
 
 {% block body %}
    <div class="container mt-5 xs">
-	<h1 class="text-center mb-4">Les catégories</h1>
-    <a class="btn btn-warning" href="{{ path('categorie_new') }}">Ajouter une catégorie</a>
+	<h1 class="text-center mb-4">Vos partenaires</h1>
+    <a class="btn btn-warning" href="{{ path('logo_new') }}">Ajouter un partenaire</a>
     <div class="row shadow p-3 mb-5 bg-white rounded">
       <div class="col-md-12">
 
@@ -16,36 +16,38 @@
                       <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
                       <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
                       <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
-                        <a href="{{path('client_index')}}"><buton class="btn btn-primary ">Comptes clients</button></a>
-            </div>          
-
-    
+                      <a href="{{path('logo_index')}}"><buton class="btn btn-primary ">Partenaires</button></a>
+            </div>         
         <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Categorie</th>
+                <th scope="col">Image</th>
                 <th scope="col">actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for categorie in categories %}
+        {% for logo in logos %}
             <tr>
-                <td>{{ categorie.id }}</td>
-                <td>{{ categorie.categorie }}</td>
+              
+                <th>{{ logo.id }}</td>
+                <th><img style="width:200px;height:200px; "src="{{ vich_uploader_asset(logo, 'imageFile') }}" alt=""></th>
+
                 <td>
-                    <a class="btn btn-primary" href="{{ path('categorie_show', {'id': categorie.id}) }}">show</a>
-                    <a class ="btn btn-warning"href="{{ path('categorie_edit', {'id': categorie.id}) }}">Modifier</a>
+               
+                <td>
+                    <a class="btn btn-primary" href="{{ path('logo_show', {'id': logo.id}) }}">Regarder</a>
+                    <a class="btn btn-warning" href="{{ path('logo_edit', {'id': logo.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    </div>
-    </div>
-    </div>
+</div>
+</div>
+</div>
+   
 {% endblock %}

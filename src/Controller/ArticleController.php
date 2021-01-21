@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/article")
+ * @Route("admin/article")
  */
 class ArticleController extends AbstractController
 {
@@ -94,32 +94,8 @@ class ArticleController extends AbstractController
         return $this->redirectToRoute('article_index');
     }
    
-     /**
-     * @Route("/{id}", name="article_show", methods={"GET"})
-     */
-    public function show1(int $id,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
-    {
-        return $this->render('view/index.html.twig', [
-            
-      
-            'categories' => $categorieRepository->findAll(),
-            'genres' => $genreRepository->findAll(),
-            'articles' => $articleRepository->findBy(array('genre'=>$id)),
-        ]);
-    }
-     /**
-     * @Route("/{id}", name="article_show2", methods={"GET"})
-     */
-    public function showCategorie(int $id,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
-    {
-        return $this->render('viewcategorie/index.html.twig', [
-            
-      
-            'categories' => $categorieRepository->findAll(),
-            'genres' => $genreRepository->findAll(),
-            'articles' => $articleRepository->findBy(array('categorie'=>$id)),
-        ]);
-    }
+    
+    
    
     
 }

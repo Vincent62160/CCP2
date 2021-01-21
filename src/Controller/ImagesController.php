@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Vich\UploaderBundle\Templating\Helper\UploaderHelper;
 
 /**
- * @Route("/images")
+ * @Route("/admin/images")
  */
 class ImagesController extends AbstractController
 {

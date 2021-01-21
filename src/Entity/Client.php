@@ -33,7 +33,7 @@ class Client implements UserInterface
     private $roles = [];
 
     /**
-     * @var string The hashed password
+     * @var string  password
      * @ORM\Column(type="string")
      */
     private $password;
