@@ -3,11 +3,20 @@
 {% block title %}Edit Message{% endblock %}
 
 {% block body %}
-    <h1>Edit Message</h1>
+    <div class="container mt-5">
 
-    {{ include('message/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('message_index') }}">back to list</a>
+    <h1>Répondre</h1>
+    <a class="btn btn-primary" href="{{ path('message_index') }}">Retour</a>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+
+    {{ include('message/_form.html.twig', {'button_label': 'Envoyer'}) }}
+
+  
 
     {{ include('message/_delete_form.html.twig') }}
+    </div>
+    </div>
+    </div>
 {% endblock %}

@@ -34,6 +34,11 @@ class Message
      */
     private $Commentaire;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $reponse;
+
    
    
     
@@ -80,6 +85,18 @@ class Message
     public function setCommentaire(string $Commentaire): self
     {
         $this->Commentaire = $Commentaire;
+
+        return $this;
+    }
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(?string $reponse): self
+    {
+        $this->reponse = $reponse;
 
         return $this;
     }

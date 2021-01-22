@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ViewCategorieController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="article_show2", methods={"GET"})
+     * @Route("categorie/{id}", name="article_show2", methods={"GET"})
      */
     public function index(int $id,ArticleRepository $articleRepository,ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
