@@ -1,0 +1,64 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}Hello CartController!
+{% endblock %}
+
+{% block body %}
+   
+    {% if items|length > 0 %}
+    <div class="container mt-5">
+     <h1>Votre panier</h1>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+    
+    <table class="table table-hover">
+
+             <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-success ">Continuer mes achats</button></a>
+             </div>
+          <thead class="thead-dark">
+              <tr>
+                 <th scope="col">Article</th>
+                 <th scope="col">Image</th>
+                 <th scope="col">prix</th>
+                 <th scope="col">Quantité</th>
+                 <th scope="col">Total</th>
+                 <th scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+
+              <tr>
+                 <td scope="row">{{item.article.Titre}}</td>
+                  <td scope="row"> <img style="height:100px;width:100px;" src="{{ vich_uploader_asset(item.article.image, 'imageFile') }}" alt=""></td>
+                 <td scope="row">{{item.article.prix}}€</td>
+                 <td scope="row">{{item.quantité}}</td>
+                 <td scope="row">{{item.article.prix * item.quantité}}€</td>
+                 <td scope="row">
+                 <a href="{{path('panier_remove',{'id': item.article.id}) }}" class="btn btn-danger btn-sm">
+                     Supprimer
+                </a>
+                
+            {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                   <td colspan="4" class="text-right">Total :</td>
+                   <td>{{total}}€</td>
+                   <td> <a href="#" class="btn btn-success btn-sm">Commander</a>
+                </tr>
+               
+            </tfoot>
+        </table>
+        </div>
+    </div>
+    {% else %}
+    <div class="container mt-5">
+      <h1>Votre panier est vide</h1>
+     
+    </div>
+         
+    {% endif %}
+   
+{% endblock %}

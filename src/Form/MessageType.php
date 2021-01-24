@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Form;
-
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use App\Entity\Message;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -14,7 +14,7 @@ class MessageType extends AbstractType
         $builder
             ->add('Email')
             ->add('Sujet')
-            ->add('Commentaire')
+            ->add('Commentaire',CKEditorType::class,)
         ;
     }
 
