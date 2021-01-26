@@ -25,7 +25,7 @@ class AcceuilController extends AbstractController
             'genres' => $genreRepository->findAll(),
             'articles' => $articleRepository->findAll(),
             'logos' => $logoRepository->findAll(),
-                    'clients' => $clientRepository->findAll(),
+            'clients' => $clientRepository->findAll(),
         ]);
     }
 }

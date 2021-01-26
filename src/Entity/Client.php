@@ -38,6 +38,23 @@ class Client implements UserInterface
      */
     private $password;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Commandes::class, mappedBy="utilisateur")
+     */
+    private $commandes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=UtilisateurAdresses::class, mappedBy="utilisateur")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $adresses;
+
+    public function __construct()
+    {
+        $this->commandes = new ArrayCollection();
+        $this->adresses = new ArrayCollection();
+    }
+    
    
    
 
@@ -117,6 +134,66 @@ class Client implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    /**
+     * @return Collection|Commandes[]
+     */
+    public function getCommandes(): Collection
+    {
+        return $this->commandes;
+    }
+
+    public function addCommande(Commandes $commande): self
+    {
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes[] = $commande;
+            $commande->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commandes $commande): self
+    {
+        if ($this->commandes->removeElement($commande)) {
+            // set the owning side to null (unless already changed)
+            if ($commande->getUtilisateur() === $this) {
+                $commande->setUtilisateur(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|UtilisateurAdresses[]
+     */
+    public function getAdresses(): Collection
+    {
+        return $this->adresses;
+    }
+
+    public function addAdress(UtilisateurAdresses $adress): self
+    {
+        if (!$this->adresses->contains($adress)) {
+            $this->adresses[] = $adress;
+            $adress->setUtilisateur($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdress(UtilisateurAdresses $adress): self
+    {
+        if ($this->adresses->removeElement($adress)) {
+            // set the owning side to null (unless already changed)
+            if ($adress->getUtilisateur() === $this) {
+                $adress->setUtilisateur(null);
+            }
+        }
+
+        return $this;
     }
 
 }

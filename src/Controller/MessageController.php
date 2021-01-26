@@ -17,12 +17,12 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/message")
+ * @Route("/")
  */
 class MessageController extends AbstractController
 {
     /**
-     * @Route("/", name="message_index", methods={"GET"})
+     * @Route("admin/message", name="message_index", methods={"GET"})
      */
     public function index(MessageRepository $messageRepository): Response
     {
@@ -33,7 +33,7 @@ class MessageController extends AbstractController
 
    
       /**
-     * @Route("/new", name="message_new", methods={"GET","POST"})
+     * @Route("message/new", name="message_new", methods={"GET","POST"})
      */
     public function new1(MessageRepository $messageRepository,GenreRepository $genreRepository,CategorieRepository $categorieRepository, Request $request): Response
     {    
@@ -60,7 +60,7 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="message_show", methods={"GET"})
+     * @Route("admin/{id}", name="message_show", methods={"GET"})
      */
     public function show(Message $message): Response
     {
@@ -70,7 +70,7 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="message_edit", methods={"GET","POST"})
+     * @Route("admin/message/{id}/edit", name="message_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Message $message): Response
     {
@@ -90,7 +90,7 @@ class MessageController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="message_delete", methods={"DELETE"})
+     * @Route("admin/delete/{id}", name="message_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Message $message): Response
     {
