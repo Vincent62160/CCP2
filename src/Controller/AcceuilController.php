@@ -9,6 +9,7 @@ use App\Repository\GenreRepository;
 use App\Repository\ArticleRepository;
 use App\Repository\LogoRepository;
 use App\Repository\ClientRepository;
+use App\Repository\SectionRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,7 +20,7 @@ class AcceuilController extends AbstractController
     /**
      * @Route("/acceuil", name="acceuil")
      */
-    public function index(EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository ,ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function index(SectionRepository $SectionRepository,EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository ,ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
         return $this->render('acceuil/index.html.twig', [
             'controller_name' => 'AcceuilController',
@@ -31,6 +32,7 @@ class AcceuilController extends AbstractController
             'clients' => $clientRepository->findAll(),
             'cgvcgus' => $cgvcguRepository->findAll(),
             'entetes' => $enteteRepository->findAll(),
+            'Sections' => $SectionRepository->findAll(),
       
         ]);
     }

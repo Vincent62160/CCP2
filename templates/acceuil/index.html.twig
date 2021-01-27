@@ -3,6 +3,8 @@
 {% block title %}Hello AcceuilController!{% endblock %}
 
 {% block body %}
+
+ {% for Section in Sections %}
 <section class="content1 cid-s0btjSrjzP" id="content01-e">
 
      <div class="mb-3">
@@ -19,14 +21,14 @@
         <div class="mbr-row mbr-jc-c">
             <div class="mbr-col-lg-8 mbr-col-md-12 mbr-col-sm-12">
                 <h3 class="mbr-section-subtitle mbr-black mbr-fonts-style mbr-pb-1 align-center display-5">
-                    En savoir plus sur notre marque</h3>
+                    {{ Section.titre }}</h3>
                 <p class="mbr-fonts-style mbr-text align-center display-5">
-                    Vous voulez en savoir plus sur notre marque rendez vous sur notre site internet lunette@com. <a href="#" class="text-black">@mobirise</a>.</p>
+                    {{Section.description}} <a href="#" class="text-black">{{ Section.SiteInternet }}</a>.</p>
             </div>
         </div>
     </div>
 </section>
-
+{% endfor %}
 <section class="features1 cid-s0bsg6BUXn" id="features01-2">
     
     <div class="container-fluid mbr-white">
