@@ -124,7 +124,7 @@ class Images
         return $this;
     }
     /**
-     * @ORM\OneToMany(targetEntity=Entete::class, mappedBy="imageentete")
+     * @ORM\OneToMany(targetEntity=Entete::class, mappedBy="image")
      */
     private $entetes;
 

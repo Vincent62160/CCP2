@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 use App\Repository\CgvcguRepository;
+use App\Repository\EnteteRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\ImagesRepository;
 use App\Repository\GenreRepository;
@@ -18,7 +19,7 @@ class AcceuilController extends AbstractController
     /**
      * @Route("/acceuil", name="acceuil")
      */
-    public function index(CgvcguRepository $cgvcguRepository ,ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function index(EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository ,ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
         return $this->render('acceuil/index.html.twig', [
             'controller_name' => 'AcceuilController',
@@ -29,6 +30,7 @@ class AcceuilController extends AbstractController
             'logos' => $logoRepository->findAll(),
             'clients' => $clientRepository->findAll(),
             'cgvcgus' => $cgvcguRepository->findAll(),
+            'entetes' => $enteteRepository->findAll(),
       
         ]);
     }
