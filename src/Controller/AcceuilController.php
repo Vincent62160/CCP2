@@ -10,7 +10,7 @@ use App\Repository\ArticleRepository;
 use App\Repository\LogoRepository;
 use App\Repository\ClientRepository;
 use App\Repository\SectionRepository;
-
+use App\Repository\SectionDeuxRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +20,7 @@ class AcceuilController extends AbstractController
     /**
      * @Route("/acceuil", name="acceuil")
      */
-    public function index(SectionRepository $SectionRepository,EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository ,ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function index(SectionDeuxRepository $sectionDeuxRepository,SectionRepository $SectionRepository,EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository ,ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
         return $this->render('acceuil/index.html.twig', [
             'controller_name' => 'AcceuilController',
@@ -33,6 +33,7 @@ class AcceuilController extends AbstractController
             'cgvcgus' => $cgvcguRepository->findAll(),
             'entetes' => $enteteRepository->findAll(),
             'Sections' => $SectionRepository->findAll(),
+            'section_deuxes' => $sectionDeuxRepository->findAll(),
       
         ]);
     }

@@ -13,6 +13,7 @@ use App\Repository\MessageRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\GenreRepository;
 use App\Repository\CgvcguRepository;
+use App\Repository\EnteteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,10 +27,11 @@ class MessageController extends AbstractController
     /**
      * @Route("admin/message", name="message_index", methods={"GET"})
      */
-    public function index(MessageRepository $messageRepository): Response
+    public function index(MessageRepository $messageRepository,EnteteRepository $enteteRepository): Response
     {
         return $this->render('message/index.html.twig', [
             'messages' => $messageRepository->findAll(),
+            'entetes' => $enteteRepository->findAll(),
         ]);
     }
 
@@ -37,7 +39,7 @@ class MessageController extends AbstractController
       /**
      * @Route("message/new", name="message_new", methods={"GET","POST"})
      */
-    public function new1(CgvcguRepository $cgvcguRepository,MessageRepository $messageRepository,GenreRepository $genreRepository,CategorieRepository $categorieRepository, Request $request): Response
+    public function new1(EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository,MessageRepository $messageRepository,GenreRepository $genreRepository,CategorieRepository $categorieRepository, Request $request): Response
     {    
        
         $message = new Message();
@@ -59,6 +61,7 @@ class MessageController extends AbstractController
             'messages' => $messageRepository->findAll(),
             'form' => $form->createView(),
             'cgvcgus' => $cgvcguRepository->findAll(),
+            'entetes' => $enteteRepository->findAll(),
         ]);
     }
 

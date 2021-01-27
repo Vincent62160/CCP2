@@ -7,6 +7,7 @@ use App\Repository\GenreRepository;
 use App\Entity\Cgvcgu;
 use App\Form\CgvcguType;
 use App\Repository\CgvcguRepository;
+use App\Repository\EnteteRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -53,13 +54,14 @@ class CgvcguController extends AbstractController
     /**
      * @Route("cgvcgu/{id}", name="cgvcgu_show", methods={"GET"})
      */
-    public function show(Cgvcgu $cgvcgu,GenreRepository $genreRepository,CategorieRepository $categorieRepository,CgvcguRepository $cgvcguRepository): Response
+    public function show(Cgvcgu $cgvcgu,EnteteRepository $enteteRepository,GenreRepository $genreRepository,CategorieRepository $categorieRepository,CgvcguRepository $cgvcguRepository): Response
     {
         return $this->render('cgvcgu/show.html.twig', [
             'cgvcgu' => $cgvcgu,
             'genres' => $genreRepository->findAll(),
             'categories' => $categorieRepository->findAll(),
             'cgvcgus' => $cgvcguRepository->findAll(),
+            'entetes' => $enteteRepository->findAll(),
         ]);
     }
 

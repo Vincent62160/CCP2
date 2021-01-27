@@ -33,32 +33,25 @@
     
     <div class="container-fluid mbr-white">
         <div class="mbr-row">
-            <div class="mbr-col-lg-6 mbr-col-md-6 col1 mbr-m-auto mbr-col-sm-12"style="position: relative; background: url('assets/img/background1.jpg');background-size: cover;background-position: center;}">
-                <div class="mbr-overlay"></div>
-                <div class="content">
 
-                    
-                    <h1 class="mbr-section-title mbr-fonts-style align-left mbr-pb-2 display-2"><strong>Femmes</strong></h1>
-                    
-                    <div class="mbr-section-btn mbr-pt-5 align-left"><a class="btn btn-md btn-white-outline display-4" href="#"><span class="mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M24 11l-6.7 6.7-1.4-1.4 4.3-4.3H0v-2h20.2l-4.3-4.3 1.4-1.4L24 11z"></path></svg></span>Acheter maintenant</a>
-                    </div>
-                </div>
-            </div>
-            <div class="mbr-col-lg-6 mbr-col-md-6 col2 mbr-m-auto mbr-col-sm-12" style="position: relative; background: url('assets/img/background2.jpg');background-size: cover;background-position: center;}">
+        {% for section_deux in section_deuxes %}
+            <div class="mbr-col-lg-6 mbr-col-md-6 col1 mbr-m-auto mbr-col-sm-12"style="position: relative; background:url('{{ vich_uploader_asset(section_deux.image, 'imageFile') }}') ;background-size: cover;background-position: center;}">
+            
                 <div class="mbr-overlay"></div>
                 <div class="content">
-                  
+                
+        
+                    <h1 class="mbr-section-title mbr-fonts-style align-left mbr-pb-2 display-2"><strong>{{ section_deux.titre }}</strong></h1>
                     
-                    <h1 class="mbr-section-title mbr-fonts-style align-left mbr-pb-2 display-2"><strong>Hommes</strong></h1>
-                    
-                    <div class="mbr-section-btn mbr-pt-5 align-left"><a class="btn btn-md btn-white-outline display-4" href="#"><span class="mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M24 11l-6.7 6.7-1.4-1.4 4.3-4.3H0v-2h20.2l-4.3-4.3 1.4-1.4L24 11z"></path></svg></span>Acheter maintenant</a>
-                    
-                    </div>
+    
                 </div>
             </div>
+            {% endfor %}
+            
         </div>
     </div>
 </section>
+
 <section class="content5 cid-s0bsQkplRB" id="content05-c">
 
     
@@ -497,16 +490,18 @@
                     commodo suscipit"</p>
             </div>
         </div>
- {% for logo in logos %}
+ 
  
     <div class="row">
+          
             <div class="col">
-                    <amp-img src="{{ vich_uploader_asset(logo, 'imageFile') }}" alt="" width="400" height="400" layout="responsive" class="mobirise-loader mbr-m-auto align-center"></amp-img>
+                     {% for logo in logos %}<amp-img src="{{ vich_uploader_asset(logo, 'imageFile') }}" alt="" width="400" height="400" layout="responsive" class="mobirise-loader mbr-m-auto align-center"></amp-img>        {% endfor %}
                     <div class="line"></div>
             </div>
+             
     </div>
 
-  {% endfor %}
+  
 </div>   
                
 </section>

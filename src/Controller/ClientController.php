@@ -8,6 +8,7 @@ use App\Repository\CategorieRepository;
 use App\Repository\ClientRepository;
 use App\Repository\GenreRepository;
 use App\Repository\CgvcguRepository;
+use App\Repository\EnteteRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,11 +23,12 @@ class ClientController extends AbstractController
     /**
      * @Route("/admin/client", name="client_index", methods={"GET"})
      */
-    public function index(ClientRepository $clientRepository,CgvcguRepository $cgvcguRepository): Response
+    public function index(ClientRepository $clientRepository,EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository): Response
     {
         return $this->render('client/index.html.twig', [
             'clients' => $clientRepository->findAll(),
             'cgvcgus' => $cgvcguRepository->findAll(),
+            'entetes' => $enteteRepository->findAll(),
             
         ]);
     }
@@ -57,13 +59,14 @@ class ClientController extends AbstractController
     /**
      * @Route("/client/{id}", name="client_show", methods={"GET"})
      */
-    public function show(Client $client,GenreRepository $genreRepository,CategorieRepository $categorieRepository,CgvcguRepository $cgvcguRepository): Response
+    public function show(Client $client,EnteteRepository $enteteRepository,GenreRepository $genreRepository,CategorieRepository $categorieRepository,CgvcguRepository $cgvcguRepository): Response
     {
         return $this->render('client/show.html.twig', [
             'client' => $client,
             'genres' => $genreRepository->findAll(),
             'categories' => $categorieRepository->findAll(),
             'cgvcgus' => $cgvcguRepository->findAll(),
+            'entetes' => $enteteRepository->findAll(),
         ]);
     }
 

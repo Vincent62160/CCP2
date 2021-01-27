@@ -127,6 +127,10 @@ class Images
      * @ORM\OneToMany(targetEntity=Entete::class, mappedBy="image")
      */
     private $entetes;
+      /**
+     * @ORM\OneToMany(targetEntity=SectionDeux::class, mappedBy="image")
+     */
+    private $sectiondeuxs;
 
     public function __construct1()
     {
@@ -181,5 +185,8 @@ class Images
         return $this;
     }
 
+
+    
+    
 
 }
