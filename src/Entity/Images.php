@@ -123,6 +123,63 @@ class Images
 
         return $this;
     }
+    /**
+     * @ORM\OneToMany(targetEntity=Entete::class, mappedBy="imageentete")
+     */
+    private $entetes;
+
+    public function __construct1()
+    {
+        $this->entetes = new ArrayCollection();
+    }
+
+
+    public function getImageFile1()
+    {
+        return $this->imageFile;
+    }
+
+
+
+    public function setImageFile1( ?File $imageFile ): void {
+        $this->imageFile = $imageFile;
+        if($this->imageFile instanceof UploadedFile){
+            $this->updated_at = new \DateTime('now');
+        }
+        //return $this;
+    }
+
+    // A LA !
+
+    /**
+     * @return Collection|Entete[]
+     */
+    public function getEntete(): Collection
+    {
+        return $this->entetes;
+    }
+
+    public function addEntete(Entete $entete): self
+    {
+        if (!$this->entetes->contains($entete)) {
+            $this->entetes[] = $entete;
+            $entete->setImage($this);
+        }
+
+        return $this;
+    }
+
+    public function removeEntete(Entete $entete): self
+    {
+        if ($this->articles->removeElement($entete)) {
+            // set the owning side to null (unless already changed)
+            if ($entete->getImage() === $this) {
+                $entete->setImage(null);
+            }
+        }
+
+        return $this;
+    }
 
 
 }

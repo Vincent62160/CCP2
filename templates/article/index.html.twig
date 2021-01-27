@@ -5,7 +5,7 @@
 {% block body %}
 <div class="container mt-5">
     <h1>Liste des articles</h1>
-    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class="row shadow p-3 mb-5 bg-white rounded lg-5 md-12 sm-12 " >
     <div class=" col-12">
     
     <table class="table table-hover">
@@ -42,7 +42,7 @@
                 <th scope="row">{{ article.description }}</th>
                 <th scope="row">{{ article.categorie.id }}</th>
                 <th scope="row">{{ article.genre.id}}</th>
-                <th scope="row">{{ article.prix }}</th>
+                <th scope="row">{{ article.prix }}€</th>
              
                 <th scope="row"> <a class="btn btn-primary" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a></th>
             </tr>
