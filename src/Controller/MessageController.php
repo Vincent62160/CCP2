@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
+
+
+
+
 use App\Entity\Message;
 use App\Form\MessagesType;
 use App\Form\MessageType;
-
-
-
 use App\Repository\MessageRepository;
 use App\Repository\CategorieRepository;
 use App\Repository\GenreRepository;
+use App\Repository\CgvcguRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -35,7 +37,7 @@ class MessageController extends AbstractController
       /**
      * @Route("message/new", name="message_new", methods={"GET","POST"})
      */
-    public function new1(MessageRepository $messageRepository,GenreRepository $genreRepository,CategorieRepository $categorieRepository, Request $request): Response
+    public function new1(CgvcguRepository $cgvcguRepository,MessageRepository $messageRepository,GenreRepository $genreRepository,CategorieRepository $categorieRepository, Request $request): Response
     {    
        
         $message = new Message();
@@ -56,6 +58,7 @@ class MessageController extends AbstractController
             'categories' => $categorieRepository->findAll(),
             'messages' => $messageRepository->findAll(),
             'form' => $form->createView(),
+            'cgvcgus' => $cgvcguRepository->findAll(),
         ]);
     }
 

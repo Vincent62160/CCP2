@@ -7,7 +7,7 @@ use App\Form\ClientType;
 use App\Repository\CategorieRepository;
 use App\Repository\ClientRepository;
 use App\Repository\GenreRepository;
-
+use App\Repository\CgvcguRepository;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,10 +22,12 @@ class ClientController extends AbstractController
     /**
      * @Route("/admin/client", name="client_index", methods={"GET"})
      */
-    public function index(ClientRepository $clientRepository): Response
+    public function index(ClientRepository $clientRepository,CgvcguRepository $cgvcguRepository): Response
     {
         return $this->render('client/index.html.twig', [
             'clients' => $clientRepository->findAll(),
+            'cgvcgus' => $cgvcguRepository->findAll(),
+            
         ]);
     }
 
@@ -55,19 +57,20 @@ class ClientController extends AbstractController
     /**
      * @Route("/client/{id}", name="client_show", methods={"GET"})
      */
-    public function show(Client $client,GenreRepository $genreRepository,CategorieRepository $categorieRepository): Response
+    public function show(Client $client,GenreRepository $genreRepository,CategorieRepository $categorieRepository,CgvcguRepository $cgvcguRepository): Response
     {
         return $this->render('client/show.html.twig', [
             'client' => $client,
             'genres' => $genreRepository->findAll(),
             'categories' => $categorieRepository->findAll(),
+            'cgvcgus' => $cgvcguRepository->findAll(),
         ]);
     }
 
     /**
      * @Route("client/{id}/edit", name="client_edit", methods={"GET","POST"})
      */
-    public function edit(CategorieRepository $categorieRepository,Request $request, Client $client,UserPasswordEncoderInterface $passwordEncoder,GenreRepository $genreRepository): Response
+    public function edit(CategorieRepository $categorieRepository,Request $request, Client $client,UserPasswordEncoderInterface $passwordEncoder,GenreRepository $genreRepository,CgvcguRepository $cgvcguRepository): Response
     {   
     
         $form = $this->createForm(ClientType::class, $client);
@@ -93,6 +96,7 @@ class ClientController extends AbstractController
             'genres' => $genreRepository->findAll(),
             'categories' => $categorieRepository->findAll(),
             'form' => $form->createView(),
+            'cgvcgus' => $cgvcguRepository->findAll(),
         ]);
     }
 

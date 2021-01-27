@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\CategorieRepository;
 use App\Repository\ImagesRepository;
+use App\Repository\CgvcguRepository;
 use App\Repository\GenreRepository;
 use App\Repository\ArticleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -15,7 +16,7 @@ class AidezMoiController extends AbstractController
     /**
      * @Route("/aide", name="aide")
      */
-    public function index(ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function index(CgvcguRepository $cgvcguRepository ,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
         return $this->render('aide/index.html.twig', [
             'controller_name' => 'AidezMoiController',
@@ -23,6 +24,7 @@ class AidezMoiController extends AbstractController
             'categories' => $categorieRepository->findAll(),
             'genres' => $genreRepository->findAll(),
             'articles' => $articleRepository->findAll(),
+            'cgvcgus' => $cgvcguRepository->findAll(),
         ]);
     }
 }

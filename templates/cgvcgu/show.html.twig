@@ -3,7 +3,7 @@
 {% block title %}Cgvcgu{% endblock %}
 
 {% block body %}
-    <h1>Conditions générales de vente et d'utilmisation</h1>
+    <h1 class="mbr-section-title mbr-fonts-style align-left mbr-pb-2 display-1" style="text-align:center;">Conditions générales de vente et d'utilisation</h1>
 
     <table class="table">
         <tbody>
@@ -15,9 +15,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('cgvcgu_index') }}">back to list</a>
+    
 
-    <a href="{{ path('cgvcgu_edit', {'id': cgvcgu.id}) }}">edit</a>
-
-    {{ include('cgvcgu/_delete_form.html.twig') }}
 {% endblock %}

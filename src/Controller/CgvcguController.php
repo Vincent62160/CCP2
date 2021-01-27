@@ -51,14 +51,15 @@ class CgvcguController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="cgvcgu_show", methods={"GET"})
+     * @Route("cgvcgu/{id}", name="cgvcgu_show", methods={"GET"})
      */
-    public function show(Cgvcgu $cgvcgu,GenreRepository $genreRepository,CategorieRepository $categorieRepository): Response
+    public function show(Cgvcgu $cgvcgu,GenreRepository $genreRepository,CategorieRepository $categorieRepository,CgvcguRepository $cgvcguRepository): Response
     {
         return $this->render('cgvcgu/show.html.twig', [
             'cgvcgu' => $cgvcgu,
             'genres' => $genreRepository->findAll(),
             'categories' => $categorieRepository->findAll(),
+            'cgvcgus' => $cgvcguRepository->findAll(),
         ]);
     }
 

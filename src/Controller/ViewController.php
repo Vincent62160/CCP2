@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Repository\ArticleRepository;
 use App\Repository\CategorieRepository;
+use App\Repository\CgvcguRepository;
 use App\Repository\ImagesRepository;
 use App\Repository\GenreRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +15,7 @@ class ViewController extends AbstractController
    /**
      * @Route("article/{id}", name="article_show", methods={"GET"})
      */
-    public function show1(int $id,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function show1(int $id,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository,CgvcguRepository $cgvcguRepository): Response
     {
         return $this->render('view/index.html.twig', [
             
@@ -22,6 +23,7 @@ class ViewController extends AbstractController
             'categories' => $categorieRepository->findAll(),
             'genres' => $genreRepository->findAll(),
             'articles' => $articleRepository->findBy(array('genre'=>$id)),
+            'cgvcgus' => $cgvcguRepository->findAll(),
         ]);
     }
 }
