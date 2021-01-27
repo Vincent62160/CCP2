@@ -1,15 +1,15 @@
 {% extends 'baseA.html.twig' %}
 
-{% block title %}Listes des articles{% endblock %}
+{% block title %}Cgvcgu index{% endblock %}
 
 {% block body %}
-<div class="container mt-5">
+   <div class="container mt-5">
     <h1>Liste des articles</h1>
     <div class="row shadow p-3 mb-5 bg-white rounded">
     <div class=" col-12">
     
     <table class="table table-hover">
-    <a href="{{ path('article_new') }}"><buton class="btn btn-warning">Ajouter un article</button></a>
+    <a href="{{ path('cgvcgu_new') }}"><buton class="btn btn-warning">Editer les CGV/CGU</button></a>
              <div class="row-md-1">
                       <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
                       <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
@@ -22,40 +22,29 @@
                        <a href="{{path('cgvcgu_index')}}"><buton class="btn btn-primary ">CGV/CGU</button></a>
             </div>          
         <thead class="thead-dark">
-            <tr>
-                 <th  scope="col">Image</th>
-                 <th  scope="col">Titre</th>
-                 <th scope="col">Description</th>
-                 <th scope="col">Categorie</th>
-                 <th scope="col">Genre</th>
-                 <th scope="col">prix</th>
-             
-                <th scope="col">Modifier</th>
-
+                
+                <th scope="col">Condition général de vente et d'utilistation</th>
+                <th scope="col">actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for article in articles %}
-          <tr>
-              <th scope="row"> <img style="height:100px;width:100px;" src="{{ vich_uploader_asset(article.image, 'imageFile') }}" alt=""></th>
-                <th scope="row">{{ article.Titre }}</th>
-                <th scope="row">{{ article.description }}</th>
-                <th scope="row">{{ article.categorie.id }}</th>
-                <th scope="row">{{ article.genre.id}}</th>
-                <th scope="row">{{ article.prix }}</th>
-             
-                <th scope="row"> <a class="btn btn-primary" href="{{ path('article_edit', {'id': article.id}) }}">Modifier</a></th>
+        {% for cgvcgu in cgvcgus %}
+            <tr>
+               
+                <td>{{ cgvcgu.conditiong|raw }}</td>
+                <td>
+                    <a href="{{ path('cgvcgu_show', {'id': cgvcgu.id}) }}">show</a>
+                    <a href="{{ path('cgvcgu_edit', {'id': cgvcgu.id}) }}">edit</a>
+                </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="4">no records found</td>
+                <td colspan="3">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    </div>
-    </div>
 
-    
-   
+   </div>
+   </div></div>
 {% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}Editer le CGV et CGU{% endblock %}
+
+{% block body %}
+    <h1>Editer CGV CGU</h1>
+
+    {{ include('cgvcgu/_form.html.twig') }}
+
+    <a href="{{ path('cgvcgu_index') }}">back to list</a>
+{% endblock %}
