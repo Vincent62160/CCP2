@@ -12,6 +12,7 @@ use App\Repository\ClientRepository;
 use App\Repository\SectionRepository;
 use App\Repository\SectionDeuxRepository;
 use App\Repository\SectionEntretienRepository;
+use App\Repository\CaracteristiqueRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -24,7 +25,7 @@ class AcceuilController extends AbstractController
     public function index(SectionEntretienRepository $sectionEntretienRepository,SectionDeuxRepository $sectionDeuxRepository,
     SectionRepository $SectionRepository,EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository ,
     ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, 
-    ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository,CaracteristiqueRepository $caracteristiqueRepository): Response
     {
         return $this->render('acceuil/index.html.twig', [
             'controller_name' => 'AcceuilController',
@@ -39,6 +40,7 @@ class AcceuilController extends AbstractController
             'Sections' => $SectionRepository->findAll(),
             'section_deuxes' => $sectionDeuxRepository->findAll(),
             'section_entretiens' => $sectionEntretienRepository->findAll(),
+            'caracteristiques' => $caracteristiqueRepository->findAll(),
       
         ]);
     }

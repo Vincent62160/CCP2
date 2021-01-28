@@ -189,16 +189,18 @@
 
     <div class="container">
         <div class="mbr-row mbr-jc-c">
+         
             <div class="mbr-col-lg-6 mbr-pb-5 mbr-col-md-10 mbr-col-sm-12">
                 
                 <h2 class="main-title mbr-fonts-style mbr-pb-2 align-center display-2">Nos caractéristiques</h2>
             </div>
         </div>
         <div class="mbr-row mbr-jc-c">
+         {% for caracteristique in caracteristiques %}
             <div class="card md-pb mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4">
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <amp-img src="{{asset('assets/img/entete.jpg')}}" layout="responsive" width="718.0851063829788" height="600" alt="" class="mobirise-loader">
+                        <amp-img src="{{ vich_uploader_asset(caracteristique.image, 'imageFile') }}" layout="responsive" width="718.0851063829788" height="600" alt="" class="mobirise-loader">
                             <div placeholder="" class="placeholder">
                                 <div class="mobirise-spinner">
                                     <em></em>
@@ -209,100 +211,24 @@
                         </amp-img>
                     </div>
                     <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style mbr-pb-1 display-7">Créateurs de New York</h4>
+                        <h4 class="card-title mbr-fonts-style mbr-pb-1 display-7">{{ caracteristique.titre }}</h4>
                         <p class="mbr-text mbr-fonts-style mbr-semibold display-4">
                             Lire la suite</p>
                     </div>
 
                 </div>
             </div>
-            <div class="card md-pb mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <amp-img src="{{asset('assets/img/03.jpg')}}" layout="responsive" width="453.6170212765957" height="600" alt="" class="mobirise-loader">
-                            <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                            
-                        </amp-img>
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style mbr-pb-1 display-7">design unique</h4>
-                        <p class="mbr-text mbr-fonts-style mbr-semibold display-4">
-                            Lire la suite</p>
-                    </div>
-
-                </div>
-            </div>
-            <div class="card md-pb mbr-col-sm-12 mbr-col-md-6 mbr-col-lg-4 last-child">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <amp-img src="{{asset('assets/img/04.jpg')}}" layout="responsive" width="390.9836065573771" height="600" alt="" class="mobirise-loader">
-                            <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                            
-                        </amp-img>
-                    </div>
-                    <div class="card-box">
-                        <h4 class="card-title mbr-fonts-style mbr-pb-1 display-7">Collection de lunettes de soleil</h4>
-                        <p class="mbr-text mbr-fonts-style mbr-semibold display-4">
-                            Lire la suite<br></p>
-
-                    </div>
+               {% endfor %}
+            
 
                 </div>
             </div>
 
-        </div>
-    </div>
+     
 </section>
 
-<section class="content3 cid-s0bsiqoLOf" id="content03-3">
-    
-    
-    <div class="container">
-        <div class="mbr-row">
-
-            <div class="mbr-col-lg-7 mbr-col-md-12  mbr-m-auto mbr-col-sm-12 md-pb">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/02.jpg')}}" alt="" width="766" height="766" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-            </div>
-
-
-            <div class="mbr-col-lg-5 mbr-col-md-12 mbr-m-auto mbr-col-sm-12">
-                <div class="content">
-                    
-                    <h1 class="mbr-section-title mbr-fonts-style align-left mbr-pb-2 display-2">Vos lunettes de soleil de tous les jours</h1>
-                    <p class="mbr-fonts-style mbr-text align-left mbr-pb-5  display-7">Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit. Nunc commodo ligula eget ex accumsan, in ultricies tellus vehicula
-                    </p>
-                    <div class="mbr-section-btn align-left"><a class="btn btn-md btn-warning-outline display-4" href="#"><span class="mobi-mbri mobi-mbri-right mbr-iconfont mbr-iconfont-btn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M24 11l-6.7 6.7-1.4-1.4 4.3-4.3H0v-2h20.2l-4.3-4.3 1.4-1.4L24 11z"></path></svg></span>Acheter mainteant</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
 
 <section class="clients1 cid-s0bsyNmprb" id="clients01-9">
-
     
     <div class="container">
         <div class="mbr-row mbr-jc-c">
