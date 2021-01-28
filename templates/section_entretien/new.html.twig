@@ -1,0 +1,17 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}New SectionEntretien{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+
+ <h1>Créer la section entretien</h1>
+    <a class="btn btn-primary" href="{{ path('section_entretien_index') }}">Retour</a>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+
+
+    {{ include('section_entretien/_form.html.twig') }}
+
+    <a href="{{ path('section_entretien_index') }}">back to list</a>
+{% endblock %}

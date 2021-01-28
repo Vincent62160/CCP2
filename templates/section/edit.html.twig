@@ -1,0 +1,19 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}Edit Section{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+
+
+    <h1>Modifier section 1</h1>
+    <a class="btn btn-primary" href="{{ path('Section_index') }}">Retour</a>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+
+    {{ include('Section/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+   
+
+    {{ include('Section/_delete_form.html.twig') }}
+{% endblock %}

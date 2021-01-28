@@ -1,0 +1,60 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}SectionEntretien index{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+    <h1>Section entretien</h1>
+    <div class="row shadow p-3 mb-5 bg-white rounded lg-12 md-12 sm-12 " >
+    <div class=" col-12">
+    
+    <table class="table table-hover">
+    <a href="{{ path('section_entretien_new') }}"><buton class="btn btn-warning">Editer l'entête</button></a>
+             <div class="row-md-1">
+                      <a href="{{path('acceuil')}}"><buton class="btn btn-primary ">Retour sur le site</button></a>
+                      <a href="{{path('article_index')}}"><buton class="btn btn-primary ">Article</button></a>
+                      <a href="{{path('genre_index')}}"><buton class="btn btn-primary ">Genres</button></a>
+                      <a href="{{path('categorie_index')}}"><buton class="btn btn-primary ">Categories</button></a>
+                      <a href="{{path('images_index')}}"><buton class="btn btn-primary ">Galerie d'images</button></a>
+                      <a href="{{path('client_index')}}"><buton class="btn btn-primary ">Comptes clients</button></a>
+                      <a href="{{path('logo_index')}}"><buton class="btn btn-primary ">Partenaires</button></a>
+                      <a href="{{path('message_index')}}"><buton class="btn btn-primary ">Messages</button></a>
+                      <a href="{{path('cgvcgu_index')}}"><buton class="btn btn-primary ">CGV/CGU</button></a>
+                      <a href="{{path('entete_index')}}"><buton class="btn btn-primary ">entête</button></a>
+                      <a href="{{path('Section_index')}}"><buton class="btn btn-primary ">section 1</button></a>
+                      <a href="{{path('section_deux_index')}}"><buton class="btn btn-primary ">section 2</button></a>
+                      <a href="{{path('section_entretien_index')}}"><buton class="btn btn-primary ">section entretien</button></a>
+            </div>          
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description1</th>
+                <th>Description2</th>
+                   <th>Image</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for section_entretien in section_entretiens %}
+            <tr>
+                <td>{{ section_entretien.id }}</td>
+                <td>{{ section_entretien.titre }}</td>
+                <td>{{ section_entretien.description1 }}</td>
+                <td>{{ section_entretien.description2 }}</td>
+                 <td> <img style="height:100px;width:100px;" src="{{ vich_uploader_asset(section_entretien.image, 'imageFile') }}" alt=""></td>
+                <td>
+                   
+                    <a class="btn btn-success" href="{{ path('section_entretien_edit', {'id': section_entretien.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}

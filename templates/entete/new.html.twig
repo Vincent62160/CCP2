@@ -1,0 +1,17 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}New Entete{% endblock %}
+
+{% block body %}
+   <div class="container mt-5">
+
+
+    <h1>Créer l'entête</h1>
+    <a class="btn btn-primary" href="{{ path('entete_index') }}">Retour</a>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+
+    {{ include('entete/_form.html.twig') }}
+
+   
+{% endblock %}

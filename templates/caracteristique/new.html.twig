@@ -1,0 +1,17 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}New Caracteristique{% endblock %}
+
+{% block body %}
+   <div class="container mt-5">
+
+
+   <h1>Créer une Caractéristique</h1>
+    <a class="btn btn-primary" href="{{ path('caracteristique_index') }}">Retour</a>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+
+    {{ include('caracteristique/_form.html.twig') }}
+
+    
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}Edit SectionDeux{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+
+
+    <h1>Modifier section 2</h1>
+    <a class="btn btn-primary" href="{{ path('section_deux_index') }}">Retour</a>
+    <div class="row shadow p-3 mb-5 bg-white rounded">
+    <div class=" col-12">
+
+    {{ include('section_deux/_form.html.twig', {'button_label': 'Update'}) }}
+
+
+    {{ include('section_deux/_delete_form.html.twig') }}
+{% endblock %}

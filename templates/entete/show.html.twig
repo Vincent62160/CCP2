@@ -1,0 +1,30 @@
+{% extends 'baseA.html.twig' %}
+
+{% block title %}Entete{% endblock %}
+
+{% block body %}
+    <h1>Entete</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entete.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ entete.Titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entete.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('entete_index') }}">back to list</a>
+
+    <a href="{{ path('entete_edit', {'id': entete.id}) }}">edit</a>
+
+    {{ include('entete/_delete_form.html.twig') }}
+{% endblock %}
