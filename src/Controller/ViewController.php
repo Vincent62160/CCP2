@@ -7,6 +7,7 @@ use App\Repository\CgvcguRepository;
 use App\Repository\ImagesRepository;
 use App\Repository\GenreRepository;
 use App\Repository\EnteteRepository;
+use App\Repository\LogoRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,7 +17,7 @@ class ViewController extends AbstractController
    /**
      * @Route("article/{id}", name="article_show", methods={"GET"})
      */
-    public function show1(int $id,EnteteRepository $enteteRepository,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository,CgvcguRepository $cgvcguRepository): Response
+    public function show1(int $id,LogoRepository $logoRepository,EnteteRepository $enteteRepository,ArticleRepository $articleRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository,CgvcguRepository $cgvcguRepository): Response
     {
         return $this->render('view/index.html.twig', [
             
@@ -26,6 +27,8 @@ class ViewController extends AbstractController
             'articles' => $articleRepository->findBy(array('genre'=>$id)),
             'cgvcgus' => $cgvcguRepository->findAll(),
             'entetes' => $enteteRepository->findAll(),
+            'logos' => $logoRepository->findAll(),
+            
         ]);
     }
 }

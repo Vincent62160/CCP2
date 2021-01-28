@@ -26,14 +26,14 @@
         </div>
     </div>
 </section>
- {% for article in articles %}
+ 
 <section class="amp-shop shop1 cid-s329HcPb7G" id="shop01-m">
     
 
     <div class="container-fluid">
         <div class="amp-shop">
             <div class="mbr-row mbr-jc-c">
-                <!--1-->
+                 {% for article in articles %}
                 <div on="tap:showLightbox4-0-0" role="button"  class="item shop-image mbr-col-lg-4 mbr-col-md-6 mbr-col-sm-12">
                     <!--Ligtbox-->
                     
@@ -62,15 +62,18 @@
                              <div class="item-box-footer mbr-pt-3"><a href="{{path('panier_add',{'id':article.id}) }}" class="btn item-box-btn btn-black" target="_blank"><span>Acheter maintenant</span></a>
                              </div>
                         </div>
+                      
                     </div>
+                    
                 </div>
+                 {% endfor %}
             </div>
     
     
    
  
  </section>
-  {% endfor %}
+  
 <section class="content3 cid-s0bsiqoLOf" id="content03-3">
     
     
@@ -121,10 +124,10 @@
             </div>
 
             <div class="line"></div>
-
+             {% for logo in logos %}
             <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
                 <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/1.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
+                    <amp-img src="{{ vich_uploader_asset(logo, 'imageFile') }}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
                         <div placeholder="" class="placeholder">
                                 <div class="mobirise-spinner">
                                     <em></em>
@@ -134,136 +137,12 @@
                         
                     </amp-img>
                 </div>
+            
+
+          
 
             </div>
-
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/2.png"')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/3.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/4.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/5.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/1.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/2.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/3.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/4.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
-
-            <div class="mbr-col-lg-1 mbr-col-md-3 mbr-col-sm-12">
-                <div class="img-wrapper">
-                    <amp-img src="{{asset('assets/img/5.png')}}" alt="" width="104.39999999999999" height="87" layout="responsive" class="mobirise-loader mbr-m-auto align-center">
-                        <div placeholder="" class="placeholder">
-                                <div class="mobirise-spinner">
-                                    <em></em>
-                                    <em></em>
-                                    <em></em>
-                                </div></div>
-                        
-                    </amp-img>
-                </div>
-
-            </div>
+             {% endfor %}
 
         </div>
     </div>

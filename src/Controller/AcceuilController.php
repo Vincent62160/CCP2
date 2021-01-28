@@ -11,6 +11,7 @@ use App\Repository\LogoRepository;
 use App\Repository\ClientRepository;
 use App\Repository\SectionRepository;
 use App\Repository\SectionDeuxRepository;
+use App\Repository\SectionEntretienRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,20 +21,24 @@ class AcceuilController extends AbstractController
     /**
      * @Route("/acceuil", name="acceuil")
      */
-    public function index(SectionDeuxRepository $sectionDeuxRepository,SectionRepository $SectionRepository,EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository ,ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
+    public function index(SectionEntretienRepository $sectionEntretienRepository,SectionDeuxRepository $sectionDeuxRepository,
+    SectionRepository $SectionRepository,EnteteRepository $enteteRepository,CgvcguRepository $cgvcguRepository ,
+    ClientRepository $clientRepository,LogoRepository $logoRepository,ArticleRepository $articleRepository, 
+    ImagesRepository $imagesRepository,CategorieRepository $categorieRepository, GenreRepository $genreRepository): Response
     {
         return $this->render('acceuil/index.html.twig', [
             'controller_name' => 'AcceuilController',
             'images' => $imagesRepository->findAll(),
             'categories' => $categorieRepository->findAll(),
             'genres' => $genreRepository->findAll(),
-            'articles' => $articleRepository->findAll(),
+            'articles' => $articleRepository->findBy(array(), array('id' => 'DESC'),3),
             'logos' => $logoRepository->findAll(),
             'clients' => $clientRepository->findAll(),
             'cgvcgus' => $cgvcguRepository->findAll(),
             'entetes' => $enteteRepository->findAll(),
             'Sections' => $SectionRepository->findAll(),
             'section_deuxes' => $sectionDeuxRepository->findAll(),
+            'section_entretiens' => $sectionEntretienRepository->findAll(),
       
         ]);
     }

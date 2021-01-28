@@ -131,6 +131,10 @@ class Images
      * @ORM\OneToMany(targetEntity=SectionDeux::class, mappedBy="image")
      */
     private $sectiondeuxs;
+      /**
+     * @ORM\OneToMany(targetEntity=SectionDeux::class, mappedBy="image")
+     */
+    private $sectionentretiens;
 
     public function __construct1()
     {
